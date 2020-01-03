@@ -6,8 +6,8 @@ const getSomeMessages = user_id => {
 
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to connect to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to connect to database`, error.message);
   }
 };
 
@@ -17,8 +17,8 @@ const getAllMessages = user_id => {
 
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to connect to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to connect to database`, error.message);
   }
 };
 
@@ -28,8 +28,8 @@ const getSentMessages = user_id => {
 
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to connect to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to connect to database`, error.message);
   }
 };
 
@@ -39,8 +39,8 @@ const getMessage = message_id => {
 
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to connect to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to connect to database`, error.message);
   }
 };
 
@@ -50,8 +50,8 @@ const getSentMessage = message_id => {
 
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to connect to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to connect to database`, error.message);
   }
 };
 
@@ -59,8 +59,8 @@ const sendMessage = (subject, message, sent_from, sent_to, sent_from_companies_i
   const query = db.any(`INSERT INTO private_messages (subject, message, sent_from, sent_to, sent_from_companies_id) VALUES ($1, $2, $3, $4, $5);`, [subject, message, sent_from, sent_to, sent_from_companies_id])
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable save to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable save to database`, error.message);
   }
 }
 

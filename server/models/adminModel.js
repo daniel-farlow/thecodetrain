@@ -9,8 +9,8 @@ const getReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -21,8 +21,8 @@ const getUsersReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -33,8 +33,8 @@ const getCompaniesReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -45,8 +45,8 @@ const getJobsReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -57,8 +57,8 @@ const getResourcesReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -69,8 +69,8 @@ const getSingleReport = report_id => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -82,8 +82,8 @@ const getResolvedReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -94,8 +94,8 @@ const getResolvedUsersReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -106,8 +106,8 @@ const getResolvedCompaniesReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -118,8 +118,8 @@ const getResolvedJobsReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -130,8 +130,8 @@ const getResolvedResourcesReports = () => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -140,8 +140,8 @@ const getAllUserReports = user_id => {
   const query = db.any(`SELECT * from reports WHERE users_id = $1;`, [user_id]);
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -152,8 +152,8 @@ const getAllCompanyReports = companies_id => {
   ]);
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -164,8 +164,8 @@ const getAllJobReports = jobs_posts_id => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 // CHANGE THESE BACK WHEN YOU FINISH DINNER NEEDS SINGLE RESOURCE ID
@@ -176,8 +176,8 @@ const getAllResourceReports = resource_id => {
   ]);
   try {
     return query;
-  } catch {
-    console.log("There was an error when retrieving the reports");
+  } catch(error) {
+    console.log("There was an error when retrieving the reports", error.message);
   }
 };
 
@@ -189,8 +189,8 @@ const removeAuthUser = users_id => {
   ]);
   try {
     return query;
-  } catch {
-    console.log("There was an error when accessing database");
+  } catch(error) {
+    console.log("There was an error when accessing database", error.message);
   }
 };
 
@@ -202,8 +202,8 @@ const removeAuthCompanyUsers = companies_id => {
   );
   try {
     return query;
-  } catch {
-    console.log("There was an error when accessing database");
+  } catch(error) {
+    console.log("There was an error when accessing database", error.message);
   }
 };
 
@@ -238,8 +238,8 @@ const sendMessageCompany = async (
   });
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable save to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable save to database`, error.message);
   }
 };
 
@@ -251,8 +251,8 @@ const sendMessageUser = (subject, message, sent_from, sent_to) => {
   );
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable save to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable save to database`, error.message);
   }
 };
 
@@ -281,8 +281,8 @@ const postReport = (
   );
   try {
     return postQuery;
-  } catch {
-    return console.log(`ERROR: Unable save to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable save to database`, error.message);
   }
 };
 
@@ -317,8 +317,8 @@ const resolveIssue = report_id => {
   ]);
   try {
     return query;
-  } catch {
-    console.log("There was an error when accessing database");
+  } catch(error) {
+    console.log("There was an error when accessing database", error.message);
   }
 };
 

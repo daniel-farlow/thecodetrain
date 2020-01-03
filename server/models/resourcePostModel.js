@@ -6,8 +6,8 @@ const getAllResources = async () => {
   );
   try {
     return query;
-  } catch {
-    return console.log(`Error: Unable to retrieve resources from database`);
+  } catch(error) {
+    return console.log(`Error: Unable to retrieve resources from database`, error.message);
   }
 };
 
@@ -24,9 +24,9 @@ const getAllResourcesAndPosters = async () => {
 
   try {
     return query;
-  } catch {
+  } catch(error) {
     return console.log(
-      `Error: Unable to retrieve resources and posters from database`
+      `Error: Unable to retrieve resources and posters from database`, error.message
     );
   }
 };
@@ -44,9 +44,9 @@ const getResourceandPosterById = async id => {
 
   try {
     return query;
-  } catch {
+  } catch(error) {
     return console.log(
-      `Error: Unable to retrieve resources and posters from database`
+      `Error: Unable to retrieve resources and posters from database`, error.message
     );
   }
 };
@@ -64,8 +64,8 @@ const saveNewResource = async (
   );
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to save to database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to save to database`, error.message);
   }
 };
 
@@ -81,8 +81,8 @@ const deleteResource = async resourceId => {
   try {
     console.log("Resource deleted successfully");
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to delete resource from database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to delete resource from database`, error.message);
   }
 };
 
@@ -103,8 +103,8 @@ const updateResource = async (
   );
   try {
     return query;
-  } catch {
-    return console.log(`ERROR: Unable to update resource in database`);
+  } catch(error) {
+    return console.log(`ERROR: Unable to update resource in database`, error.message);
   }
 };
 
