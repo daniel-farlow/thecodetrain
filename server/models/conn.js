@@ -1,3 +1,5 @@
+console.log('You should be connected to the db now');
+
 const pgp = require("pg-promise")({
   query: e => {
     console.log("QUERY:", e.query);
