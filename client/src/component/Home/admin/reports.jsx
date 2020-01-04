@@ -124,7 +124,7 @@ export default function Reports() {
     }
   };
 
-  const ENDPOINT = `http://localhost:3000`;
+  const ENDPOINT = `${process.env.REACT_APP_API_URL}`;
 
   useEffect(() => {
     getReports().then(reports => setAllReports(reports));
@@ -241,7 +241,7 @@ export default function Reports() {
 
   const handleMessageSubmit = async e => {
     e.preventDefault();
-    const endpoint = "http://localhost:3000";
+    const endpoint = `${process.env.REACT_APP_API_URL}`;
     const send = await axios.post(`${endpoint}/sendmessage`, sendMessage);
     if (send.status === 200) {
       alert("Message Sent");
@@ -253,7 +253,7 @@ export default function Reports() {
 
   const handleCompanyMessageSubmit = async e => {
     e.preventDefault();
-    const endpoint = "http://localhost:3000";
+    const endpoint = `${process.env.REACT_APP_API_URL}`;
     const send = await axios.post(
       `${endpoint}/reports/send/company`,
       sendCompanyMessage

@@ -28,7 +28,7 @@ export default function AdminHome() {
   const [jobs, setJobs] = useState([]);
   const [resources, setResources] = useState([]);
 
-  const ENDPOINT = "localhost:3000";
+  const ENDPOINT = `${process.env.REACT_APP_API_URL}`;
 
   const getUsersReports = async () => {
     const response = await axios.get(`http://${ENDPOINT}/reports/all/users`);

@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const getJobPostsByCompanyId = async (companyId) => {
-  const endpoint = `http://localhost:3000/posts/jobs/company/${companyId}`;
+  const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs/company/${companyId}`;
   const res = await Axios.get(endpoint);
   const data = res.data
   return data
@@ -103,7 +103,7 @@ const FormWrapper = styled.div`
 `;
 
 const getApplicantsByJobId = async (jobsId) => {
-  const endpoint = `http://localhost:3000/api/applicants/${jobsId}`;
+  const endpoint = `${process.env.REACT_APP_API_URL}/api/applicants/${jobsId}`;
   const res = await Axios.get(endpoint);
   const data = res.data
   return data
@@ -126,7 +126,7 @@ const ApplicantsData = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const endpoint = "http://localhost:3000";
+    const endpoint = `${process.env.REACT_APP_API_URL}`;
     const send = await Axios.post(`${endpoint}/sendmessage`, sendMessage);
     if (send.status === 200) {
       alert("Message Sent");
@@ -142,7 +142,7 @@ const ApplicantsData = props => {
   }, [props.jobId]);
 
   const handleRejection = async (applicantId, jobId) => {
-    const endpoint = `http://localhost:3000/job-applications/update-status/${applicantId}/${jobId}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/job-applications/update-status/${applicantId}/${jobId}`;
     await Axios.put(endpoint);
     getApplicantsByJobId();
     alert("Applicant was rejected.");

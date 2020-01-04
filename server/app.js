@@ -57,7 +57,8 @@ app.use(express.static(path.join(__dirname, "public/")));
 //   })
 // );
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.use(express.static(path.join(__dirname, '../client/build')))
 
 app.use("/", indexRouter);
 app.use("/", usersRouter);
@@ -69,4 +70,9 @@ app.use("/posts/jobs", postsJobsRouter);
 app.use("/companies", companiesRouter);
 app.use("/profiles", profilesRouter);
 app.use("/api/applicants", applicantsRouter);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 module.exports = app;

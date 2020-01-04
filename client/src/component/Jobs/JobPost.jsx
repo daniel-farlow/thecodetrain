@@ -28,7 +28,7 @@ import {
 } from "bloomer";
 
 const fetchJobsData = async (jobId) => {
-  const endpoint = `http://localhost:3000/posts/jobs/id/${jobId}`;
+  const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs/id/${jobId}`;
   const res = await Axios.get(endpoint);
   const data = res.data
   return data
@@ -57,7 +57,7 @@ const JobPost = props => {
   }, [props.match.params.job_id]);
 
   const postApplication = async () => {
-    const endpoint = "http://localhost:3000/job-applications/add-application/";
+    const endpoint = `${process.env.REACT_APP_API_URL}/job-applications/add-application/`;
     const payload = {
       users_id: user.id,
       posts_jobs_id: jobs.id
@@ -90,7 +90,7 @@ const JobPost = props => {
 
   const handleEditSubmit = async e => {
     e.preventDefault();
-    const endpoint = `http://localhost:3000/posts/jobs/update/${props.match.params.job_id}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs/update/${props.match.params.job_id}`;
 
     const payload = {
       title: editJobState.job_title,
@@ -116,7 +116,7 @@ const JobPost = props => {
         {
           label: 'Delete',
           onClick: async () => {
-            const endpoint = `http://localhost:3000/posts/jobs/delete/${props.match.params.job_id}`
+            const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs/delete/${props.match.params.job_id}`
             await Axios.put(endpoint);
             history.push(`/jobs`)
           }

@@ -14,7 +14,7 @@ import {
 } from "bloomer";
 
 const SignupForm = () => {
-  const endpoint = "http://localhost:3000";
+  const endpoint = `${process.env.REACT_APP_API_URL}`;
   // const endpoint = "http://192.168.0.123:3000";
   const [newUser, setNewUser] = useState({
     email: "",
@@ -31,7 +31,7 @@ const SignupForm = () => {
   const [companyInfo, setCompanyInfo] = useState([]);
 
   const getCompanyInfo = async () => {
-    const response = await Axios.get(`http://localhost:3000/companies`);
+    const response = await Axios.get(`${process.env.REACT_APP_API_URL}/companies`);
     setCompanyInfo(response.data);
   };
 

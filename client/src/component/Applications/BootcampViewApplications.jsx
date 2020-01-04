@@ -19,7 +19,7 @@ const BootcampViewApplications = () => {
 
   const getUserApplications = async id => {
     const response = await axios.get(
-      `http://localhost:3000/job-applications/user/${id}`
+      `${process.env.REACT_APP_API_URL}/job-applications/user/${id}`
     );
     setUserApplications(response.data);
   };

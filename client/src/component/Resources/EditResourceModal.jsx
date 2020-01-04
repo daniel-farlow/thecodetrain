@@ -32,7 +32,7 @@ const EditResourceModal = props => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const resourceId = resource.id
-    const endpoint = `http://localhost:3000/resources/update/${resourceId}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/resources/update/${resourceId}`;
 
     const payload = {
       title: editState.title,

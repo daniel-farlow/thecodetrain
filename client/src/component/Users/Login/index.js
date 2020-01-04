@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { Box, Input, Field, Label, Title, Button } from "bloomer";
 
 const LoginForm = props => {
-  const endpoint = "http://localhost:3000";
+  const endpoint = `${process.env.REACT_APP_API_URL}`;
   // const endpoint = "http://192.168.0.123:3000";
   let history = useHistory();
 

@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom'
 
 import { Button, Box, Title, Container, Card } from "bloomer";
 
-const endpoint = "http://localhost:3000";
+const endpoint = `${process.env.REACT_APP_API_URL}`;
 
 const getJobsByCompany = async (companyId) => {
   const response = await axios.get(

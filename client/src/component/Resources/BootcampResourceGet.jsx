@@ -20,7 +20,7 @@ const BootcampResourceGet = () => {
   });
 
   const fetchResourcesData = async () => {
-    const resourcesEndpoint = "http://localhost:3000/resources/getAllResources";
+    const resourcesEndpoint = `${process.env.REACT_APP_API_URL}/resources/getAllResources`;
     const res = await axios.get(resourcesEndpoint);
     setResources(res.data);
     setResourcesFetched(true);
@@ -35,7 +35,7 @@ const BootcampResourceGet = () => {
         {
           label: "Delete",
           onClick: async () => {
-            const endpoint = `http://localhost:3000/resources/delete/${resourceId}`;
+            const endpoint = `${process.env.REACT_APP_API_URL}/resources/delete/${resourceId}`;
             await axios.put(endpoint);
             await fetchResourcesData();
           }

@@ -10,7 +10,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const fetchResourcesData = async (resourceId) => {
-  const resourcesEndpoint = `http://localhost:3000/resources/${resourceId}`;
+  const resourcesEndpoint = `${process.env.REACT_APP_API_URL}/resources/${resourceId}`;
   const res = await axios.get(resourcesEndpoint);
   const data = res.data
   return data
@@ -36,7 +36,7 @@ const ResourcePost = props => {
         {
           label: 'Delete',
           onClick: async () => {
-            const endpoint = `http://localhost:3000/resources/delete/${resourceId}`;
+            const endpoint = `${process.env.REACT_APP_API_URL}/resources/delete/${resourceId}`;
             await axios.put(endpoint);
             history.push('/resources')
           }

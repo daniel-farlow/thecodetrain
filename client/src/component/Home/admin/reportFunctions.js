@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const ENDPOINT = `http://localhost:3000`;
+const ENDPOINT = `${process.env.REACT_APP_API_URL}`;
 
 
 export const getReports = async () => {

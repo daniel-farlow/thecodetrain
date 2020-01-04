@@ -25,7 +25,7 @@ const CreateJobPost = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const endpoint = "http://localhost:3000/posts/jobs/add";
+    const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs/add`;
 
     const payload = {
       title: state.job_title,

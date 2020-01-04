@@ -36,7 +36,6 @@ export const Button = styled.button`
 export const Title = styled.h1`
   text-align: center;
   font-size: 300%;
-  letter-spacing: ;
 `;
 
 export const TextArea = styled.textarea`

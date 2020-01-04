@@ -18,7 +18,7 @@ import {
 import styled from "styled-components";
 
 const fetchJobsData = async (companyId) => {
-  const endpoint = `http://localhost:3000/posts/jobs/company/${companyId}`;
+  const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs/company/${companyId}`;
   const res = await Axios.get(endpoint);
   const activeJobs = res.data.filter(job => job.is_active === true);
   return activeJobs;
@@ -51,7 +51,7 @@ const CompanyJobs = () => {
 };
 
 const fetchCompanyData = async (companyId) => {
-  const endpoint = `http://localhost:3000/companies/id/${companyId}`;
+  const endpoint = `${process.env.REACT_APP_API_URL}/companies/id/${companyId}`;
   const res = await Axios.get(endpoint);
   const data = res.data
   return data

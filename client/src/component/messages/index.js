@@ -20,7 +20,7 @@ import {
   TextArea,
   Button
 } from "bloomer";
-const endpoint = "http://localhost:3000";
+const endpoint = `${process.env.REACT_APP_API_URL}`;
 
 
 const getMessages = async (userId) => {

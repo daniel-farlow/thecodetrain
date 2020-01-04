@@ -19,7 +19,7 @@ import styled from "styled-components";
 
 // This component fetches all the data that will populate each job post
 const fetchJobsData = async () => {
-  const endpoint = "http://localhost:3000/posts/jobs";
+  const endpoint = `${process.env.REACT_APP_API_URL}/posts/jobs`;
   const res = await Axios.get(endpoint);
   const activeJobs = res.data.filter(job => job.is_active === true);
   return activeJobs
@@ -45,7 +45,7 @@ const JobBoard = () => {
 };
 
 const fetchCompanyData = async (companyId) => {
-  const endpoint = `http://localhost:3000/companies/id/${companyId}`;
+  const endpoint = `${process.env.REACT_APP_API_URL}/companies/id/${companyId}`;
   const res = await Axios.get(endpoint);
   const data = res.data
   return data
@@ -63,7 +63,7 @@ const JobCard = ({ data }) => {
 
   // Currently not being used since decision was made to allow an application only when they are viewing the full details of the job post
   // const postApplication = () => {
-  //   const endpoint = "http://localhost:3000/job-applications/add-application/";
+  //   const endpoint = `${process.env.REACT_APP_API_URL}/job-applications/add-application/`;
   //   const payload = {
   //     users_id: user.id,
   //     posts_jobs_id: data.id

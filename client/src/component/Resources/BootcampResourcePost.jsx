@@ -31,7 +31,7 @@ const BootcampResourcePost = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     const userId = user.id;
-    const endpoint = `http://localhost:3000/resources/add/${userId}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/resources/add/${userId}`;
 
     const payload = {
       title: state.title,

@@ -23,7 +23,7 @@ const CreateCompany = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const endpoint = "http://localhost:3000/companies/add";
+    const endpoint = `${process.env.REACT_APP_API_URL}/companies/add`;
 
     const payload = {
       email: state.email,

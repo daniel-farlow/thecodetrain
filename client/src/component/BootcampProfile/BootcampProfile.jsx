@@ -43,7 +43,7 @@ const UserProfile = () => {
   const history = useHistory();
 
   const getUserInfo = async id => {
-    const response = await axios.get(`http://localhost:3000/profiles/id/${id}`);
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/profiles/id/${id}`);
     setUserInfo(response.data);
     setSkillsArray(response.data.skills);
   };
@@ -68,7 +68,7 @@ const UserProfile = () => {
   };
 
   const updateUser = async id => {
-    const endpoint = `http://localhost:3000/update/${id}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/update/${id}`;
 
     let skillsArray = userInfo.skills.split(",");
 

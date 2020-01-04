@@ -38,7 +38,7 @@ const CompanyProfile = () => {
 
   const getCompanyInfo = async id => {
     const response = await axios.get(
-      `http://localhost:3000/companies/id/${id}`
+      `${process.env.REACT_APP_API_URL}/companies/id/${id}`
     );
     setCompanyInfo(response.data);
   };
@@ -63,7 +63,7 @@ const CompanyProfile = () => {
   };
 
   const updateCompany = async id => {
-    const endpoint = `http://localhost:3000/companies/update/${id}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/companies/update/${id}`;
     const payload = {
       email: companyInfo.email,
       name: companyInfo.name,

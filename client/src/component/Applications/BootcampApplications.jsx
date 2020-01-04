@@ -16,7 +16,7 @@ const BootcampApplications = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const endpoint = "http://localhost:3000/job-applications/add-application";
+    const endpoint = `${process.env.REACT_APP_API_URL}/job-applications/add-application`;
 
     const payload = {
       date_applied: state.date_applied,
